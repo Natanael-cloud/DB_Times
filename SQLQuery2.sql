@@ -53,3 +53,7 @@ CREATE TABLE Jogos (
     CONSTRAINT FK_TimeCasa FOREIGN KEY (TimeCasaID) REFERENCES TimesFutebol(TimeID),
     CONSTRAINT FK_TimeVisitante FOREIGN KEY (TimeVisitanteID) REFERENCES TimesFutebol(TimeID)
 );
+
+-- Exemplo de inserção na tabela Jogos
+INSERT INTO Jogos (TimeCasaID, TimeVisitanteID, DataJogo, LocalJogo) 
+VALUES (1, 2, '2025-02-20', 'Estádio Mineirão'); -- Atlético Mineiro vs Atlético Paranaense
