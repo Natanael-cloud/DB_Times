@@ -42,3 +42,14 @@ INSERT INTO TimesFutebol (NomeTime, UF, PosicaoAtual) VALUES ('Ponte Preta', 'SP
 INSERT INTO TimesFutebol (NomeTime, UF, PosicaoAtual) VALUES ('Sampaio Corrêa', 'MA', 14);
 INSERT INTO TimesFutebol (NomeTime, UF, PosicaoAtual) VALUES ('Sport', 'PE', 15);
 INSERT INTO TimesFutebol (NomeTime, UF, PosicaoAtual) VALUES ('Vila Nova', 'GO', 16);
+
+-- Criar uma tabela relacionada para armazenar informações adicionais sobre os jogos
+CREATE TABLE Jogos (
+    JogoID INT IDENTITY(1,1) PRIMARY KEY, -- Chave primária auto-incremental
+    TimeCasaID INT NOT NULL, -- FK para o time mandante
+    TimeVisitanteID INT NOT NULL, -- FK para o time visitante
+    DataJogo DATE NOT NULL, -- Data do jogo
+    LocalJogo NVARCHAR(200) NOT NULL, -- Local do jogo
+    CONSTRAINT FK_TimeCasa FOREIGN KEY (TimeCasaID) REFERENCES TimesFutebol(TimeID),
+    CONSTRAINT FK_TimeVisitante FOREIGN KEY (TimeVisitanteID) REFERENCES TimesFutebol(TimeID)
+);
